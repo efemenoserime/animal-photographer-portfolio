@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import PropTypes from "prop-types";
 import { Carousel } from "react-bootstrap";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
