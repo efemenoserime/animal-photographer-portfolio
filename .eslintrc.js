@@ -12,6 +12,7 @@ module.exports = {
     module: "true",
     process: "true",
     exports: "true",
+    require: "true",
   },
   parserOptions: {
     ecmaFeatures: {
