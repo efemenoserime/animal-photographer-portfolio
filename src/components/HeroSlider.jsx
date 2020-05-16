@@ -39,12 +39,18 @@ const HeroSlider = () => {
   const { edges: sliderImages } = data.allContentfulImage;
 
   return (
-    <Carousel as="section" className="d-flex" style={{ height: "80vh" }}>
+    <Carousel
+      as="section"
+      interval="4000"
+      controls={false}
+      indicators={false}
+      className="d-flex"
+      style={{ height: "80vh" }}
+    >
       {/* Map through all slider images and create carousel item for each */}
       {sliderImages.map((node, index) => (
         <Carousel.Item className="h-100" key={index}>
           <Img fluid={node.node.image.fluid} className="w-100 h-100" />
-          <Carousel.Caption>{node.node.title}</Carousel.Caption>
         </Carousel.Item>
       ))}
     </Carousel>
