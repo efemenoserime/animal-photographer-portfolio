@@ -11,7 +11,6 @@ const Header = ({ siteTitle }) => (
     expand="lg"
     style={{
       background: "rebeccapurple",
-      marginBottom: "1.45rem",
     }}
   >
     <Container>
