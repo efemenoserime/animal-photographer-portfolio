@@ -13,6 +13,7 @@ import Header from "./header";
 import "./layout.css";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,10 +31,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with{" "}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
