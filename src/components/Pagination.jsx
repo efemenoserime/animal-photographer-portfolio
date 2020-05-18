@@ -34,6 +34,7 @@ const ImagePagination = ({ path, pageContext, paginationHandlers }) => {
     <Pagination>
       <Pagination.First onClick={() => paginationHandlers.onClickFirst(path)} />
       <Pagination.Prev
+        disabled={pageContext.currentPage === 1 ? true : false}
         onClick={() =>
           paginationHandlers.onClickPrevious(path, pageContext.currentPage - 1)
         }
@@ -49,6 +50,9 @@ const ImagePagination = ({ path, pageContext, paginationHandlers }) => {
         </Pagination.Item>
       ))}
       <Pagination.Next
+        disabled={
+          pageContext.currentPage === pageContext.numPages ? true : false
+        }
         onClick={() =>
           paginationHandlers.onClickNext(path, pageContext.currentPage + 1)
         }
