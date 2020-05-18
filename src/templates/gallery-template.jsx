@@ -6,6 +6,9 @@ import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import ImagePagination from "../components/Pagination";
+
+import { onClick } from "../events/pagination";
 
 const GalleryPage = ({ data }) => {
   const result = data.allContentfulImage.nodes;
@@ -13,8 +16,12 @@ const GalleryPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Galerie" />
-      <Container as="section">
-        <h1>Gallery</h1>
+      <Container
+        fluid
+        as="section"
+        className="d-flex flex-column align-items-center py-5"
+      >
+        <h1 className="mb-5">Gallery</h1>
         <Row
           lg="3"
           md="3"
@@ -29,6 +36,7 @@ const GalleryPage = ({ data }) => {
             </ImageContainer>
           ))}
         </Row>
+        <ImagePagination onClick={onClick} path="/gallery" />
       </Container>
     </Layout>
   );
