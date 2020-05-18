@@ -5,7 +5,7 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
 /**
- * GalleryPreview component displays 12 images from gallery as a preview.
+ * GalleryPreview component displays 3 images from gallery as a preview.
  * @author Efeme Noserime
  */
 const GalleryPreview = () => {
