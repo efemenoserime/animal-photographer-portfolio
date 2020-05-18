@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -19,38 +19,35 @@ const GlobalStyle = createGlobalStyle`
 const GalleryPage = ({ data, pageContext }) => {
   const result = data.allContentfulImage.nodes;
   const [showLightBox, setshowLightBox] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openLightBox = image => {
+    setSelectedImage(image);
+    setshowLightBox(true);
+  };
+
+  useEffect(() => {}, [showLightBox]);
 
   return (
     <Layout>
       <GlobalStyle />
-      {showLightBox ? (
-        <Modal show={showLightBox}>
-          This is a test
-          <button type="button" onClick={() => setshowLightBox(false)}>
-            Open
-          </button>
-        </Modal>
-      ) : null}
       <SEO title="Galerie" />
       <Container
         fluid
         as="section"
         className="d-flex flex-column align-items-center py-5"
       >
-        <button type="button" onClick={() => setshowLightBox(true)}>
-          Open
-        </button>
         <h1 className="mb-5">Gallery</h1>
         <Row
           lg="3"
-          md="3"
+          md="2"
           sm="2"
-          xs="2"
+          xs="1"
           className="w-100"
           style={{ minHeight: "750px" }}
         >
           {result.map((img, index) => (
-            <ImageContainer key={index}>
+            <ImageContainer key={index} onClick={() => openLightBox(img)}>
               <Img key={index} fluid={img.image.fluid} className="h-100" />
             </ImageContainer>
           ))}
@@ -60,6 +57,24 @@ const GalleryPage = ({ data, pageContext }) => {
           path="/gallery"
           pageContext={pageContext}
         />
+        {showLightBox ? (
+          <Modal
+            size="xl"
+            show={showLightBox}
+            className=" w-100"
+            backdrop={"static"}
+            centered
+          >
+            <Img
+              fluid={selectedImage.image.fluid}
+              style={{ height: "80vh", width: "100%" }}
+              imgStyle={{ objectFit: "contain" }}
+            />
+            <button type="button" onClick={() => setshowLightBox(false)}>
+              Close
+            </button>
+          </Modal>
+        ) : null}
       </Container>
     </Layout>
   );
@@ -72,11 +87,9 @@ export const query = graphql`
         id
         title
         image {
-          fluid(maxWidth: 400) {
-            base64
-            tracedSVG
-            srcWebp
+          fluid(maxWidth: 1920) {
             srcSetWebp
+            srcWebp
           }
         }
       }
@@ -92,6 +105,7 @@ GalleryPage.propTypes = {
 const ImageContainer = styled(Col)`
   margin-bottom: 16px;
   width: 100%;
+  min-height: 260px;
 `;
 
 export default GalleryPage;
