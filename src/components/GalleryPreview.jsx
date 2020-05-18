@@ -37,11 +37,11 @@ const GalleryPreview = () => {
   return (
     <Container
       as="section"
-      className="py-4 d-flex flex-column align-items-center"
+      className="py-5 d-flex flex-column align-items-center"
       fluid
     >
       <Link to="/gallery">
-        <h2 className="my-3">Gallery</h2>
+        <h2 className="mb-5">Gallery</h2>
       </Link>
       <Row
         lg="3"
