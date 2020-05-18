@@ -29,10 +29,8 @@ const Layout = ({ children }) => {
   return (
     <div style={{ fontFamily: "Rosarion, 'Segoe UI', Verdana, sans-serif" }}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <main>{children}</main>
+      <Footer />
     </div>
   );
 };
