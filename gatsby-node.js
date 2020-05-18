@@ -7,6 +7,7 @@
 // You can delete this file if you're not using it
 
 const path = require("path");
+const imagesPerPage = require("./constants").imagesPerPage;
 
 exports.onCreateWebpackConfig = ({ plugins, actions }) => {
   actions.setWebpackConfig({
@@ -43,7 +44,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const images = result.data.allContentfulImage.nodes;
-  const imagesPerPage = 9;
 
   // Calculate how much pages are needed to show all images
   const numPages = Math.ceil(images.length / imagesPerPage);
