@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "animal-photographer-portfolio",
+  "description": "A simple portfolio project created with React.js, Gatsby.js and Contentful.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Efeme Noserime",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "bootstrap": "^4.5.0",
