@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Layout from "../components/layout";
-import { Container, Row, Col } from "react-bootstrap";
-import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
+
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 import ImagePagination from "../components/Pagination";
+import paginationHandlers from "../events/pagination";
 
-import { onClick } from "../events/pagination";
-
-const GalleryPage = ({ data }) => {
+const GalleryPage = ({ data, pageContext }) => {
   const result = data.allContentfulImage.nodes;
 
   return (
@@ -36,7 +36,11 @@ const GalleryPage = ({ data }) => {
             </ImageContainer>
           ))}
         </Row>
-        <ImagePagination onClick={onClick} path="/gallery" />
+        <ImagePagination
+          paginationHandlers={paginationHandlers}
+          path="/gallery"
+          pageContext={pageContext}
+        />
       </Container>
     </Layout>
   );
@@ -63,6 +67,7 @@ export const query = graphql`
 
 GalleryPage.propTypes = {
   data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
 };
 
 const ImageContainer = styled(Col)`
