@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
 /**
@@ -12,7 +12,7 @@ const GalleryPreview = () => {
   // Collect image data from contentful
   const data = useStaticQuery(graphql`
     query GalleryPreviewQuery {
-      allContentfulImage(limit: 12) {
+      allContentfulImage(limit: 3) {
         edges {
           node {
             id
@@ -38,19 +38,30 @@ const GalleryPreview = () => {
     <Container
       as="section"
       className="py-4 d-flex flex-column align-items-center"
+      fluid
     >
-      <h2>Gallery</h2>
+      <Link to="/gallery">
+        <h2 className="my-3">Gallery</h2>
+      </Link>
       <Row
         lg="3"
-        md="3"
-        sm="2"
-        xs="2"
+        md="1"
+        sm="1"
+        xs="1"
         className="w-100"
-        style={{ minHeight: "750px" }}
+        style={{ minHeight: "400px" }}
       >
         {previewImages.map((img, index) => (
-          <ImageContainer key={index}>
-            <Img fluid={img.node.image.fluid} className="h-100" />
+          <ImageContainer
+            key={index}
+            className="w-100"
+            style={{ height: "400px" }}
+          >
+            <Img
+              fluid={img.node.image.fluid}
+              className="h-100"
+              imgStyle={{ objectFit: "cover" }}
+            />
           </ImageContainer>
         ))}
       </Row>
@@ -61,6 +72,10 @@ const GalleryPreview = () => {
 const ImageContainer = styled(Col)`
   margin-bottom: 16px;
   width: 100%;
+
+  @media (max-width: 991) {
+    height: 400px;
+  }
 `;
 
 export default GalleryPreview;
