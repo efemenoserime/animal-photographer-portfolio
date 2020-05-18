@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import { imagesPerPage } from "../../constants";
 
-const ImagePagination = ({ onClick, path }) => {
+const ImagePagination = ({ path, pageContext, paginationHandlers }) => {
   const data = useStaticQuery(graphql`
     query ImagePaginationQuery {
       allContentfulImage {
@@ -32,22 +32,40 @@ const ImagePagination = ({ onClick, path }) => {
 
   return (
     <Pagination>
-      <Pagination.First />
-      <Pagination.Prev />
+      <Pagination.First onClick={() => paginationHandlers.onClickFirst(path)} />
+      <Pagination.Prev
+        onClick={() =>
+          paginationHandlers.onClickPrevious(path, pageContext.currentPage - 1)
+        }
+      />
       {paginationItems.map(item => (
-        <Pagination.Item href="" key={item} onClick={() => onClick(path, item)}>
+        <Pagination.Item
+          href=""
+          key={item}
+          onClick={() => paginationHandlers.onClickIndex(path, item)}
+          active={pageContext.currentPage === item ? true : false} // active if currentPage matches pagination index
+        >
           {item}
         </Pagination.Item>
       ))}
-      <Pagination.Next />
-      <Pagination.Last />
+      <Pagination.Next
+        onClick={() =>
+          paginationHandlers.onClickNext(path, pageContext.currentPage + 1)
+        }
+      />
+      <Pagination.Last
+        onClick={() =>
+          paginationHandlers.onClickLast(path, pageContext.numPages)
+        }
+      />
     </Pagination>
   );
 };
 
 ImagePagination.propTypes = {
-  onClick: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
+  pageContext: PropTypes.object.isRequired,
+  paginationHandlers: PropTypes.objectOf(PropTypes.func),
 };
 
 export default ImagePagination;
