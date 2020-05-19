@@ -34,7 +34,10 @@ export default function AboutSection() {
           reiciendis assumenda aperiam quis autem eligendi rerum totam
           inventore, deleniti cumque illum libero!
         </GridColumn>
-        <GridColumn className="text-light">
+        <GridColumn
+          className="text-light"
+          style={{ backgroundColor: "#2e384d" }}
+        >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
           itaque laborum suscipit, quidem architecto facere. Esse doloribus, qui
           dignissimos obcaecati provident, voluptate similique ex eligendi
