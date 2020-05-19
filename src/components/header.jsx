@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import React from "react";
+import logo from "../images/Animal-Photographer-Logo-White.svg";
 
 const Header = ({ siteTitle }) => (
   <Navbar
@@ -16,7 +17,12 @@ const Header = ({ siteTitle }) => (
     <Container>
       <Navbar.Brand>
         <Link style={{ color: "white", textDecoration: "none" }}>
-          {" "}
+          <img
+            src={logo}
+            alt={`${siteTitle} logo`}
+            width="80px"
+            className="mb-0 mr-1"
+          />
           {siteTitle}{" "}
         </Link>
       </Navbar.Brand>
