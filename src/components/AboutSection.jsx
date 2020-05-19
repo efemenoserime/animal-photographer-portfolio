@@ -3,8 +3,31 @@ import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 
 import { SectionHeading } from "./Headings";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 export default function AboutSection() {
+  const result = useStaticQuery(graphql`
+    query ProfileImageQuery {
+      imageSharp(
+        fluid: { originalName: { eq: "professional-photographer.jpg" } }
+      ) {
+        id
+        fluid(quality: 90, maxWidth: 400) {
+          base64
+          tracedSVG
+          srcWebp
+          srcSetWebp
+          originalImg
+          originalName
+        }
+      }
+    }
+  `);
+
+  // Destructure result object
+  const { fluid } = result.imageSharp;
+
   return (
     <Section as="section" className="d-flex align-items-center flex-column">
       <Row className="d-flex align-items-stretch">
@@ -20,19 +43,15 @@ export default function AboutSection() {
           </p>
         </GridColumn>
         <GridColumn style={{ background: "#D8E3EA" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis maxime,
-          ducimus odit eaque dolorum eligendi molestias asperiores quam hic
-          alias dignissimos culpa ad nemo modi a deserunt corrupti debitis odio?
+          <Img fluid={fluid} objectFit="contain" className="h-100"></Img>
         </GridColumn>
       </Row>
       <Row className="d-flex align-items-stretch">
         <GridColumn style={{ background: "#D8E3EA" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit harum
-          iure error minus rerum! Consectetur iste cum voluptatibus blanditiis
-          voluptatem quam iusto sapiente, ratione, maiores optio velit! Dicta
-          tempore sint sed voluptates maiores. Dolorem harum aliquid dignissimos
-          reiciendis assumenda aperiam quis autem eligendi rerum totam
-          inventore, deleniti cumque illum libero!
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
+          laborum ullam itaque quod nisi dolore odit maiores iusto numquam illum
+          temporibus optio nobis consequatur, possimus, eos obcaecati,
+          reiciendis nam quia.
         </GridColumn>
         <GridColumn
           className="text-light"
