@@ -54,9 +54,9 @@ const GalleryPage = ({ data, pageContext }) => {
         </Row>
         <ImagePagination
           paginationHandlers={paginationHandlers}
-          path="/gallery"
+          path="/gallery/cats"
           pageContext={pageContext}
-          numPages={pageContext.numPages}
+          numPages={pageContext.numPagesCats}
         />
         {showLightBox ? (
           <Modal
@@ -82,8 +82,12 @@ const GalleryPage = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query GalleryPageQuery($skip: Int!, $limit: Int!) {
-    allContentfulImage(skip: $skip, limit: $limit) {
+  query GalleryCatQuery($skip: Int!, $limit: Int!) {
+    allContentfulImage(
+      skip: $skip
+      limit: $limit
+      filter: { category: { eq: "Cats" } }
+    ) {
       nodes {
         id
         title

@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const GalleryPage = ({ data, pageContext }) => {
+  console.log(pageContext);
   const result = data.allContentfulImage.nodes;
   const [showLightBox, setshowLightBox] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -54,9 +55,9 @@ const GalleryPage = ({ data, pageContext }) => {
         </Row>
         <ImagePagination
           paginationHandlers={paginationHandlers}
-          path="/gallery"
+          path="/gallery/horses"
           pageContext={pageContext}
-          numPages={pageContext.numPages}
+          numPages={pageContext.numPagesHorses}
         />
         {showLightBox ? (
           <Modal
@@ -82,8 +83,12 @@ const GalleryPage = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query GalleryPageQuery($skip: Int!, $limit: Int!) {
-    allContentfulImage(skip: $skip, limit: $limit) {
+  query GalleryHorseQuery($skip: Int!, $limit: Int!) {
+    allContentfulImage(
+      skip: $skip
+      limit: $limit
+      filter: { category: { eq: "Horses" } }
+    ) {
       nodes {
         id
         title
