@@ -49,7 +49,7 @@ function GalleryCategories() {
           >
             <div
               className="h-100"
-              style={{ curser: "pointer" }}
+              style={{ cursor: "pointer" }}
               onClick={() => navigate(`/gallery/${category.slug}`)}
             >
               <CategoryImage
