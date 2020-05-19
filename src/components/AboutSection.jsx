@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 
-import { SectionHeading } from "./Headings";
+import { SectionHeading, SubHeading } from "./Headings";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
@@ -33,6 +33,7 @@ export default function AboutSection() {
       <Row className="d-flex align-items-stretch">
         <GridColumn className="text-light">
           <SectionHeading>About</SectionHeading>
+          <SubHeading className="mb-4">Kim Wagenhall</SubHeading>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
             iste, doloremque minus vero aspernatur adipisci repellat culpa natus
