@@ -6,6 +6,14 @@ import { SectionHeading, SubHeading } from "./Headings";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
+// import {
+//   faFacebook,
+//   faTwitter,
+//   faInstagram,
+// } from "@fortawesome/free-brands-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function AboutSection() {
   const result = useStaticQuery(graphql`
     query ProfileImageQuery {
@@ -44,15 +52,36 @@ export default function AboutSection() {
           </p>
         </GridColumn>
         <GridColumn style={{ background: "#D8E3EA" }}>
-          <Img fluid={fluid} objectFit="contain" className="h-100"></Img>
+          <Img fluid={fluid} objectFit="contain" className="h-100" />
         </GridColumn>
       </Row>
       <Row className="d-flex align-items-stretch">
         <GridColumn style={{ background: "#D8E3EA" }}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
-          laborum ullam itaque quod nisi dolore odit maiores iusto numquam illum
-          temporibus optio nobis consequatur, possimus, eos obcaecati,
-          reiciendis nam quia.
+          <div className="d-flex justify-content-between">
+            <div>
+              <FontAwesomeIcon
+                className="mb-4"
+                icon={["fa", "phone"]}
+                size="3x"
+              />
+              <h5>Phone</h5>
+              {" - "}
+            </div>
+            <div>
+              <FontAwesomeIcon className="mb-4" icon={["fa", "at"]} size="3x" />
+              <h5>Email</h5>
+              {" - "}
+            </div>
+            <div>
+              <FontAwesomeIcon
+                className="mb-4"
+                icon={["fa", "location-arrow"]}
+                size="3x"
+              />
+              <h5>Location</h5>
+              {" - "}
+            </div>
+          </div>
         </GridColumn>
         <GridColumn
           className="text-light"
