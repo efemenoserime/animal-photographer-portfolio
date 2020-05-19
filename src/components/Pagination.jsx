@@ -1,32 +1,18 @@
 import React from "react";
 import { Pagination } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { graphql, useStaticQuery } from "gatsby";
 
-import { imagesPerPage } from "../../constants";
-
-const ImagePagination = ({ path, pageContext, paginationHandlers }) => {
-  const data = useStaticQuery(graphql`
-    query ImagePaginationQuery {
-      allContentfulImage {
-        nodes {
-          id
-          title
-        }
-      }
-    }
-  `);
-
-  // Get result out of data object and
-  // calculate needed pages to display all images
-  const images = data.allContentfulImage.nodes;
-  const pages = Math.ceil(images.length / imagesPerPage);
-
+const ImagePagination = ({
+  path,
+  pageContext,
+  numPages,
+  paginationHandlers,
+}) => {
   // Initialize array for paginationItems
   const paginationItems = [];
 
   // Push pagination index into 'paginationItems'
-  for (let i = 0; i < pages; i++) {
+  for (let i = 0; i < numPages; i++) {
     paginationItems.push(i + 1);
   }
 
@@ -50,17 +36,13 @@ const ImagePagination = ({ path, pageContext, paginationHandlers }) => {
         </Pagination.Item>
       ))}
       <Pagination.Next
-        disabled={
-          pageContext.currentPage === pageContext.numPages ? true : false
-        }
+        disabled={pageContext.currentPage === numPages ? true : false}
         onClick={() =>
           paginationHandlers.onClickNext(path, pageContext.currentPage + 1)
         }
       />
       <Pagination.Last
-        onClick={() =>
-          paginationHandlers.onClickLast(path, pageContext.numPages)
-        }
+        onClick={() => paginationHandlers.onClickLast(path, numPages)}
       />
     </Pagination>
   );
@@ -70,6 +52,7 @@ ImagePagination.propTypes = {
   path: PropTypes.string.isRequired,
   pageContext: PropTypes.object.isRequired,
   paginationHandlers: PropTypes.objectOf(PropTypes.func),
+  numPages: PropTypes.number.isRequired,
 };
 
 export default ImagePagination;
