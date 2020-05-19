@@ -16,6 +16,31 @@ import "../styles/layout.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./Footer";
 
+// FontAwesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faPhone,
+  faEnvelope,
+  faLocationArrow,
+  faAt,
+} from "@fortawesome/free-solid-svg-icons";
+import {} from "@fortawesome/free-regular-svg-icons";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
+library.add(
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faPhone,
+  faEnvelope,
+  faLocationArrow,
+  faAt,
+);
+
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: Roboto, Ubuntu, 'Segoe UI', sans-serif;
