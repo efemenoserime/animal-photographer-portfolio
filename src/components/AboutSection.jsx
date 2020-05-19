@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 
+import { SectionHeading } from "./Headings";
+
 export default function AboutSection() {
   return (
     <Section as="section" className="d-flex align-items-center flex-column">
@@ -45,21 +47,6 @@ export default function AboutSection() {
 
 const Section = styled(Container)`
   background-color: #222833;
-`;
-
-const SectionHeading = styled.h2`
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -25px;
-    height: 100%;
-    width: 10px;
-
-    background-color: #645986;
-  }
 `;
 
 const GridColumn = styled(Col)`
