@@ -26,3 +26,7 @@ export const SectionHeading = styled.h2`
     background-color: #645986;
   }
 `;
+
+export const SubHeading = styled.h5`
+  font-style: italic;
+`;
