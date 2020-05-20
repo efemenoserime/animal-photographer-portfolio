@@ -52,7 +52,12 @@ export default function AboutSection() {
           </p>
         </GridColumn>
         <GridColumn style={{ background: "#D8E3EA" }}>
-          <Img fluid={fluid} objectFit="contain" className="h-100" />
+          <Img
+            style={{ minHeight: "300px" }}
+            fluid={fluid}
+            objectFit="contain"
+            className="h-100"
+          />
         </GridColumn>
         <GridColumn style={{ background: "#D8E3EA" }}>
           <div className="d-flex justify-content-between">
