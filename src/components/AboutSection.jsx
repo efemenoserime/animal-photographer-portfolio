@@ -38,7 +38,7 @@ export default function AboutSection() {
 
   return (
     <Section as="section" className="d-flex align-items-center flex-column">
-      <Row className="d-flex align-items-stretch">
+      <Row xs={1} lg={2} className="d-flex align-items-stretch">
         <GridColumn className="text-light">
           <SectionHeading>About</SectionHeading>
           <SubHeading className="mb-4">Kim Wagenhall</SubHeading>
@@ -54,8 +54,6 @@ export default function AboutSection() {
         <GridColumn style={{ background: "#D8E3EA" }}>
           <Img fluid={fluid} objectFit="contain" className="h-100" />
         </GridColumn>
-      </Row>
-      <Row className="d-flex align-items-stretch">
         <GridColumn style={{ background: "#D8E3EA" }}>
           <div className="d-flex justify-content-between">
             <div>
