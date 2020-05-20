@@ -16,7 +16,7 @@ const ImagePagination = ({ path, pageContext, numPages }) => {
   for (let i = 0; i < numPages; i++) {
     paginationKeys.push(i + 1);
   }
-  // TODO Create pagination components to navigate back and forth between pages
+  // TODO Create pagination components to navigate back and further between pages
   return (
     <Paginate className="my-3">
       {paginationKeys.map(pageIndex => (
