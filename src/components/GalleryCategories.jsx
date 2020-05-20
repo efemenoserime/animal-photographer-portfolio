@@ -4,6 +4,7 @@ import { graphql, useStaticQuery, navigate } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 function GalleryCategories() {
   const data = useStaticQuery(graphql`
@@ -40,7 +41,7 @@ function GalleryCategories() {
         sm="1"
         as="section"
         style={{ minHeight: "400px", height: "70%" }}
-        className=" mt-3 d-flex  justify-content-center align-content-between"
+        className=" my-3 d-flex  justify-content-center align-content-between"
       >
         {result.map((category, index) => (
           <Col
@@ -62,6 +63,9 @@ function GalleryCategories() {
           </Col>
         ))}
       </Row>
+      <GalleryButton className="mt-2" cover to="/gallery">
+        Gallery
+      </GalleryButton>
     </Container>
   );
 }
@@ -99,6 +103,20 @@ const CategoryImage = styled(Img)`
     visibility: visible;
     font-size: 4rem;
     opacity: 1;
+  }
+`;
+
+const GalleryButton = styled(AniLink)`
+  color: #f5f5f5;
+  background: #663399;
+
+  padding: 0.65rem 1rem;
+  border-radius: 3px;
+
+  &:hover {
+    color: white;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    translate: 0 -1px;
   }
 `;
 
