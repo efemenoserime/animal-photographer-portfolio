@@ -41,7 +41,7 @@ function GalleryCategories() {
         sm="1"
         as="section"
         style={{ minHeight: "400px", height: "70%" }}
-        className=" my-3 d-flex  justify-content-center align-content-between"
+        className=" my-3 d-flex justify-content-center align-content-between"
       >
         {result.map((category, index) => (
           <Col
@@ -55,6 +55,7 @@ function GalleryCategories() {
             >
               <CategoryImage
                 key={category.id}
+                loading="eager"
                 fluid={category.categoryImage.fluid}
                 className="w-100 h-100"
                 category={category.category}
