@@ -2,19 +2,14 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import styled, { createGlobalStyle } from "styled-components";
-import { Container, Row, Col, Modal } from "react-bootstrap";
+
+import { Container, Row, Modal } from "react-bootstrap";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ImagePagination from "../components/Pagination";
 import paginationHandlers from "../events/pagination";
-
-const GlobalStyle = createGlobalStyle`
-  body.modal-open {
-    padding-right: 0 !important;
-  }
-`;
+import GalleryImage from "../components/GalleryImage";
 
 const GalleryPage = ({ data, pageContext }) => {
   const result = data.allContentfulImage.nodes;
@@ -30,7 +25,6 @@ const GalleryPage = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <GlobalStyle />
       <SEO title="Galerie" />
       <Container
         fluid
@@ -46,10 +40,12 @@ const GalleryPage = ({ data, pageContext }) => {
           className="w-100"
           style={{ minHeight: "750px" }}
         >
-          {result.map((img, index) => (
-            <ImageContainer key={index} onClick={() => openLightBox(img)}>
-              <Img key={index} fluid={img.image.fluid} className="h-100" />
-            </ImageContainer>
+          {result.map(img => (
+            <GalleryImage
+              key={img.id}
+              fluid={img.image.fluid}
+              onClick={() => openLightBox(img)}
+            />
           ))}
         </Row>
         <ImagePagination
@@ -102,11 +98,5 @@ GalleryPage.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
 };
-
-const ImageContainer = styled(Col)`
-  margin-bottom: 16px;
-  width: 100%;
-  min-height: 260px;
-`;
 
 export default GalleryPage;
