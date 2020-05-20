@@ -32,7 +32,6 @@ const HeroSlider = () => {
       }
     }
   `);
-  console.log("Data", data);
 
   // Destructor data object for further use
   // and rename `edges` object to sliderImages

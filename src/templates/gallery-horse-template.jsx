@@ -17,7 +17,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const GalleryPage = ({ data, pageContext }) => {
-  console.log(pageContext);
   const result = data.allContentfulImage.nodes;
   const [showLightBox, setshowLightBox] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
