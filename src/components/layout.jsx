@@ -90,6 +90,10 @@ const GlobalStyle = createGlobalStyle`
   a, a:hover {
     text-decoration: none;
   }
+
+  body.modal-open {
+    padding-right: 0 !important;
+  }
 `;
 
 const Layout = ({ children }) => {
