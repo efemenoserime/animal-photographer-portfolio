@@ -49,7 +49,11 @@ const HeroSlider = () => {
       {/* Map through all slider images and create carousel item for each */}
       {sliderImages.map((node, index) => (
         <Carousel.Item className="h-100" key={index}>
-          <Img fluid={node.node.image.fluid} className="w-100 h-100" />
+          <Img
+            loading="eager"
+            fluid={node.node.image.fluid}
+            className="w-100 h-100"
+          />
         </Carousel.Item>
       ))}
     </Carousel>
