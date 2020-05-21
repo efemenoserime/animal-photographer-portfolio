@@ -9,6 +9,7 @@ import NavLink from "./NavLink";
 const Header = ({ siteTitle }) => {
   return (
     <Navbar
+      id="main-nav"
       collapseOnSelect
       variant="dark"
       expand="lg"
@@ -29,10 +30,11 @@ const Header = ({ siteTitle }) => {
             <img
               src={logo}
               alt={`${siteTitle} logo`}
-              width="80px"
+              width="60px"
               className="mb-0 mr-1"
             />
-            {siteTitle}{" "}
+
+            <span id="site-title">{siteTitle}</span>
           </NavLink>
         </Navbar.Brand>
         <Toggler
@@ -46,6 +48,7 @@ const Header = ({ siteTitle }) => {
               className="nav-link"
               to="/"
               paintDrip
+              hex="#3D314A"
               duration={1.5}
               activeStyle={{
                 color: "rgba(255, 255, 255, .95)",
