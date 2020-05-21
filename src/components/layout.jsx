@@ -72,6 +72,10 @@ const GlobalStyle = createGlobalStyle`
     line-height: 27px;
   }
 
+  span.navbar-brand > a {
+    font-family:  Rosario, Montserrat, Verdana, sans-serif;
+  }
+
   p {
     font-size: 18px;
     line-height: 1.5;
@@ -79,8 +83,8 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover  {
     color: #11161a;
-
   }
+
 
   a {
     color: #4B5864;
