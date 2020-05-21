@@ -25,7 +25,7 @@ const ImagePagination = ({ path, pageContext, numPages }) => {
           <PaginationItem
             style={currentPage === pageIndex ? activeStyle : null}
             cover
-            to={`${path}/${pageIndex}`}
+            to={`${path}/${pageIndex === 1 ? null : pageIndex}`} // Concat pathname with pageIndex if not equal to one
           >
             {pageIndex}
           </PaginationItem>{" "}
