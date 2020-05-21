@@ -82,13 +82,14 @@ const GlobalStyle = createGlobalStyle`
 
   }
 
-  a{
+  a {
     color: #4B5864;
     transition: all .3s ease-in-out;
   }
 
-  a, a:hover {
+  a, a:hover, a:active, a:focus {
     text-decoration: none;
+    outline: none;
   }
 
   body.modal-open {
