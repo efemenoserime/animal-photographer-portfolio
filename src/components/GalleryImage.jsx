@@ -26,7 +26,7 @@ const GalleryImage = ({ fluid, className, style, onClick }) => {
         fluid={fluid}
         style={{ height: "80vh", width: "100%" }}
         className="h-100"
-        imgStyle={{ objectFit: "contain" }}
+        imgStyle={{ objectFit: "cover" }}
       />
     </ImageContainer>
   );
