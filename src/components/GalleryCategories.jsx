@@ -15,9 +15,11 @@ function GalleryCategories() {
           category
           slug
           categoryImage {
-            fluid(maxWidth: 500, quality: 80) {
+            id
+            fixed(height: 400, width: 270, quality: 80) {
               base64
               tracedSVG
+              aspectRatio
               srcWebp
               srcSetWebp
             }
@@ -37,16 +39,18 @@ function GalleryCategories() {
       <h1>Categories</h1>
       <Row
         xl="3"
+        lg="1"
         md="1"
         sm="1"
         as="section"
         style={{ minHeight: "400px", height: "70%" }}
-        className=" my-3 d-flex justify-content-center align-content-between"
+        className=" my-3 justify-content-center"
       >
         {result.map((category, index) => (
           <Col
             key={index}
-            style={{ maxWidth: "400px", minWidth: "300px", minHeight: "350px" }}
+            className="my-3"
+            style={{ minWidth: "300px", minHeight: "400px" }}
           >
             <div
               className="h-100"
@@ -56,9 +60,10 @@ function GalleryCategories() {
               <CategoryImage
                 key={category.id}
                 loading="eager"
-                fluid={category.categoryImage.fluid}
+                fixed={category.categoryImage.fixed}
                 className="w-100 h-100"
                 category={category.category}
+                imgStyle={{ objectFit: "contain" }}
               />
             </div>
           </Col>
@@ -93,7 +98,7 @@ const CategoryImage = styled(Img)`
     background-color: #33333399;
 
     height: 100%;
-    width: 100%;
+    max-width: 270px;
 
     visibility: hidden;
 
