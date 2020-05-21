@@ -72,8 +72,9 @@ const GlobalStyle = createGlobalStyle`
     line-height: 27px;
   }
 
-  span.navbar-brand > a {
+  span#site-title {
     font-family:  Rosario, Montserrat, Verdana, sans-serif;
+    font-style: italic;
   }
 
   p {
@@ -98,6 +99,17 @@ const GlobalStyle = createGlobalStyle`
 
   body.modal-open {
     padding-right: 0 !important;
+  }
+
+  @media(max-width: 399px) {
+    span#site-title {
+      font-size: 16px;
+    }
+
+    nav#main-nav span.navbar-toggler-icon {
+      height: 1.2em; 
+      width: 1.2em
+    }
   }
 `;
 
