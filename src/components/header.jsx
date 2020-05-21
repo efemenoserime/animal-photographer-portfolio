@@ -18,7 +18,14 @@ const Header = ({ siteTitle }) => {
     >
       <Container>
         <Navbar.Brand>
-          <Link className="font-italic" style={{ color: "white" }}>
+          <NavLink
+            className="font-italic"
+            style={{ color: "white" }}
+            to="/"
+            paintDrip
+            duration={1.5}
+            hex="#A393BF"
+          >
             <img
               src={logo}
               alt={`${siteTitle} logo`}
@@ -26,7 +33,7 @@ const Header = ({ siteTitle }) => {
               className="mb-0 mr-1"
             />
             {siteTitle}{" "}
-          </Link>
+          </NavLink>
         </Navbar.Brand>
         <Toggler
           aria-controls="responsive-navbar-nav"
@@ -38,7 +45,6 @@ const Header = ({ siteTitle }) => {
             <NavLink
               className="nav-link"
               to="/"
-              hex="#3D314A"
               paintDrip
               duration={1.5}
               activeStyle={{
