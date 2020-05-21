@@ -44,13 +44,13 @@ function GalleryCategories() {
         sm="1"
         as="section"
         style={{ minHeight: "400px", height: "70%" }}
-        className=" my-3 justify-content-center"
+        className=" my-3 justify-content-center "
       >
         {result.map((category, index) => (
           <Col
             key={index}
             className="my-3"
-            style={{ minWidth: "300px", minHeight: "400px" }}
+            style={{ minWidth: "300px", minHeight: "400px", maxWidth: "270px" }}
           >
             <div
               className="h-100"
@@ -98,7 +98,6 @@ const CategoryImage = styled(Img)`
     background-color: #33333399;
 
     height: 100%;
-    max-width: 270px;
 
     visibility: hidden;
 
