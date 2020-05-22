@@ -4,6 +4,7 @@ cache:
   paths:
     - .cache/
     - .node_modules/
+    - public/
 
 stages:
   - pages
@@ -12,7 +13,7 @@ pages:
   stage: pages
   script:
     - npm ci
-    - ./node_modules/gatsby/bin/gatsby build
+    - ./node_modules/gatsby/dist/bin/gatsby build
   artifacts:
     paths:
       - public
