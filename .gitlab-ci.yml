@@ -20,6 +20,7 @@ install:
       - node_modules
 
 deploy_github:
+  stage: deploy
   image: git:latest
   script:
     - git push origin master
