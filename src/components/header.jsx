@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -24,7 +23,7 @@ const Header = ({ siteTitle }) => {
             style={{ color: "white" }}
             to="/"
             paintDrip
-            duration={1.5}
+            duration={1}
             hex="#A393BF"
           >
             <img
@@ -49,7 +48,7 @@ const Header = ({ siteTitle }) => {
               to="/"
               paintDrip
               hex="#3D314A"
-              duration={1.5}
+              duration={1}
               activeStyle={{
                 color: "rgba(255, 255, 255, .95)",
               }}
@@ -61,7 +60,7 @@ const Header = ({ siteTitle }) => {
               to="/gallery"
               hex="#3D314A"
               paintDrip
-              duration={1.5}
+              duration={1}
               activeStyle={{
                 color: "rgba(255, 255, 255, .95)",
               }}
