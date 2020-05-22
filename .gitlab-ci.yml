@@ -13,7 +13,7 @@ pages:
   stage: pages
   script:
     - npm ci
-    - ./node_modules/gatsby/dist/bin/gatsby build
+    - npm run build
   artifacts:
     paths:
       - public
