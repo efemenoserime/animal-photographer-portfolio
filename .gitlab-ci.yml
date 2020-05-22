@@ -7,7 +7,6 @@ cache:
 
 stages:
   - build
-  - deploy
   - pages
 
 install:
@@ -17,12 +16,6 @@ install:
   artifacts:
     paths:
       - node_modules
-
-deploy_github:
-  stage: deploy
-  image: git:latest
-  script:
-    - git push origin master
 
 pages:
   stage: pages
