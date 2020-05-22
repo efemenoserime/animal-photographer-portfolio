@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { graphql, useStaticQuery, navigate } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "react-bootstrap";
@@ -50,22 +50,32 @@ function GalleryCategories() {
           <Col
             key={index}
             className="my-3"
-            style={{ minWidth: "300px", minHeight: "400px", maxWidth: "270px" }}
+            style={{
+              minWidth: "300px",
+              minHeight: "400px",
+              maxWidth: "270px",
+            }}
           >
-            <div
-              className="h-100"
-              style={{ cursor: "pointer" }}
-              onClick={() => navigate(`/gallery/${category.slug}`)}
+            {" "}
+            <AniLink
+              key={category.id}
+              to={`/gallery/${category.slug}`}
+              hex="#3D314A"
+              paintDrip
             >
-              <CategoryImage
-                key={category.id}
-                loading="eager"
-                fixed={category.categoryImage.fixed}
-                className="w-100 h-100"
-                category={category.category}
-                imgStyle={{ objectFit: "contain" }}
-              />
-            </div>
+              <div
+                className="h-100"
+                // {onClick={() => navigate(`/gallery/${category.slug}`)}}
+              >
+                <CategoryImage
+                  loading="eager"
+                  fixed={category.categoryImage.fixed}
+                  className="w-100 h-100"
+                  category={category.category}
+                  imgStyle={{ objectFit: "contain" }}
+                />
+              </div>
+            </AniLink>
           </Col>
         ))}
       </Row>
