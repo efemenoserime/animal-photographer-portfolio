@@ -1,0 +1,33 @@
+image: node:latest
+
+cache:
+  paths:
+    - .cache/
+    - .node_modules/
+
+stages:
+  - build
+  - deploy
+  - pages
+
+install:
+  stage: build
+  script:
+    - npm install
+    - ./node_modules/eslint/bin/eslint .
+  artifacts:
+    paths:
+      - node_modules
+
+deploy_github:
+  image: git:latest
+  script:
+    - git push origin master
+
+pages:
+  stage: pages
+  script:
+    - ./node_modules/gatsby/bin/gatsby build
+  artifacts:
+    paths:
+      - public
