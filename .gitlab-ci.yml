@@ -6,21 +6,15 @@ cache:
     - .node_modules/
 
 stages:
-  - build
   - pages
-
-install:
-  stage: build
-  script:
-    - npm ci
-  artifacts:
-    paths:
-      - node_modules
 
 pages:
   stage: pages
   script:
+    - npm ci
     - ./node_modules/gatsby/bin/gatsby build
   artifacts:
     paths:
       - public
+  only:
+    - master
